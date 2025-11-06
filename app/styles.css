@@ -1,0 +1,337 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e8e8e8;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.book-container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 320px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-right: 2px solid rgba(251, 191, 36, 0.3);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.book-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+}
+
+.book-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fbbf24;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.book-subtitle {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+  transition: width 0.6s ease;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.progress-percent {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #fbbf24;
+  font-weight: bold;
+}
+
+/* Chapter Navigation */
+.chapter-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.chapter-link {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-family: 'Georgia', serif;
+}
+
+.chapter-link:hover {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fbbf24;
+  transform: translateX(4px);
+}
+
+.chapter-link.active {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+  border-color: #fbbf24;
+  color: #fbbf24;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+}
+
+/* Quote */
+.book-quote {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-left: 3px solid #fbbf24;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 4px;
+}
+
+.book-quote p {
+  font-style: italic;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-quote span {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 3rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.chapter {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(251, 191, 36, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chapter-title {
+  font-size: 2.5rem;
+  color: #fbbf24;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 900;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.chapter-content {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #e2e8f0;
+}
+
+.chapter-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.chapter-content p:first-letter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fbbf24;
+  float: left;
+  line-height: 1;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.chapter-content .bullet-point {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.chapter-content .bullet-point:first-letter {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  float: none;
+  margin: 0;
+}
+
+/* Chapter Navigation Buttons */
+.chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(251, 191, 36, 0.2);
+}
+
+.nav-button {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.nav-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.4);
+}
+
+.nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.chapter-indicator {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .book-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .chapter {
+    padding: 2rem;
+  }
+
+  .chapter-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 1rem;
+  }
+
+  .chapter {
+    padding: 1.5rem;
+  }
+
+  .chapter-title {
+    font-size: 1.5rem;
+  }
+
+  .chapter-content {
+    font-size: 1rem;
+  }
+
+  .nav-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(251, 191, 36, 0.5);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.7);
+}
